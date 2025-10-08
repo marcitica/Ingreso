@@ -41,6 +41,21 @@ html,body{
     border-color:var(--primary);
     color:#fff;
     background:var(--primary)}
+
+    /* Título principal (como en la imagen) */
+.page-title{
+  max-width: 1000px;         /* alinea con el ancho de la tarjeta */
+  margin: 1.25rem auto .75rem;
+  padding: 0 1rem;
+  text-align: center;
+  font-weight: 800;          /* negrita fuerte */
+  line-height: 1.2;          /* separa un poco las dos líneas */
+  letter-spacing: .2px;
+  color: var(--fg);
+  /* tamaño responsivo: grande en desktop, cómodo en móvil */
+  font-size: clamp(1.35rem, 2.2vw + .8rem, 2.25rem);
+}
+
 .session{
     margin-left:auto;
     font-size:.9rem;
