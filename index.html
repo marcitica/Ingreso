@@ -3,111 +3,63 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Verificación de ingreso • CTP Cañas</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>CTP Cañas — Verificación (en espera)</title>
+
+  <!-- Usa el mismo css del proyecto o el hold.css que te compartí -->
+  <link rel="stylesheet" href="segunda.css" />
 </head>
 <body>
-  <!-- Encabezado (imagen base64) -->
+  <!-- Encabezado (igual que la otra página) -->
   <header class="header">
     <img id="banner" alt="Encabezado institucional" />
   </header>
 
-  <!-- Navegación -->
+  <!-- Barra superior mínima (opcional; la dejo igual por consistencia) -->
   <nav class="nav">
-    <button id="btnPublic" class="tab active">Verificar</button>
-    <button id="btnAdmin" class="tab">Administrador</button>
-    <span class="session" id="sessionLabel">Sesión pública (DEMO)</span>
+    <span class="session">Sesión pública</span>
   </nav>
 
-    <!-- Rótulo de anuncio -->
-    <h1 class="page-title">
-        Resultado del proceso de selección para sétimo nivel<br> para el curso lectivo 2026
+  <!-- Contenido principal -->
+  <main class="container">
+    <h1 class="title">
+      Resultado del proceso de selección para séptimo nivel para<br />
+      el curso lectivo 2026
     </h1>
 
-  <main id="publicView" class="card">
-    <label for="codeInput" class="label">Ingrese el código (se admite @)</label>
-    <div class="row">
-      <input id="codeInput" class="input" type="text" placeholder="Ej: 25JOSUE@" autocomplete="off" />
-      <button id="btnVerify" class="btn primary">Verificar</button>
-    </div>
+    <section class="notice wait" role="status" aria-live="polite">
+      <p class="lead">Resultados aún no disponibles.</p>
+      <p class="msg">Vuelve más tarde. Se habilitarán en:</p>
 
-    <section id="resultBox" class="result hidden" aria-live="polite"></section>
+      <div class="countdown" id="countdown">
+        <div class="cd-box">
+          <span id="cdDays" class="num">--</span>
+          <span class="lbl">Días</span>
+        </div>
+        <div class="cd-box">
+          <span id="cdHours" class="num">--</span>
+          <span class="lbl">Horas</span>
+        </div>
+        <div class="cd-box">
+          <span id="cdMins" class="num">--</span>
+          <span class="lbl">Min</span>
+        </div>
+        <div class="cd-box">
+          <span id="cdSecs" class="num">--</span>
+          <span class="lbl">Seg</span>
+        </div>
+      </div>
 
-    <details class="how">
-      <summary>¿Cómo funciona?</summary>
-      <p>
-        Comparamos el código con la colección <em>autorizados</em>. Si existe y está
-        <em>habilitado</em>, el ingreso es <strong>ACEPTADO</strong>; si no, <strong>DENEGADO</strong>.
+      <p class="meta">
+        Fecha de publicación:
+        <code id="releaseText">--/--/---- --:--</code>
       </p>
-    </details>
+    </section>
   </main>
-
-  <!-- Vista administrador -->
-  <section id="adminView" class="card hidden">
-    <!-- Login -->
-    <div id="loginBox">
-      <h2>Ingreso de administrador</h2>
-      <div class="row two">
-        <label class="label">Usuario
-          <input id="adminUser" class="input" type="text" placeholder="admin" />
-        </label>
-        <label class="label">Contraseña
-          <input id="adminPass" class="input" type="password" placeholder="Adsd25@" />
-        </label>
-      </div>
-      <div class="row">
-        <button id="btnLogin" class="btn primary">Entrar</button>
-      </div>
-      <p class="muted">Usuario: <code>admin</code> · Contraseña: <code>Adsd25@</code></p>
-    </div>
-
-    <!-- Panel -->
-    <div id="panelBox" class="hidden">
-      <h2>Panel de códigos</h2>
-
-      <div class="row two">
-        <input id="newCode" class="input" type="text" placeholder="Nuevo código (ej: 25NOMBRE@)" />
-        <select id="newStatus" class="input">
-          <option value="APROBADO">Aprobado</option>
-          <option value="DENEGADO">Denegado</option>
-        </select>
-        <button id="btnAdd" class="btn">Agregar</button>
-      </div>
-
-      <div class="tableWrap">
-        <table class="table" id="codesTable" aria-describedby="helpTable">
-          <thead>
-            <tr>
-              <th>Código</th>
-              <th>Estado</th>
-              <th>Habilitado</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="codesBody"></tbody>
-        </table>
-      </div>
-      <p id="helpTable" class="muted">Haz clic en el estado para cambiarlo; usa el switch para habilitar/deshabilitar.</p>
-
-      <div class="row end">
-        <button id="btnExport" class="btn">Exportar JSON</button>
-        <label class="btn file">
-          Importar JSON
-          <input type="file" id="fileImport" accept="application/json" hidden />
-        </label>
-        <div class="spacer"></div>
-        <button id="btnSave" class="btn success">Guardar</button>
-        <button id="btnSaveExit" class="btn danger">Salir y guardar</button>
-      </div>
-    </div>
-  </section>
 
   <footer class="footer">
     © CTP Cañas
   </footer>
 
-  <script src="app.js"></script>
+   <script src="gate.js"></script>
 </body>
 </html>
-
-

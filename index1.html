@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CTP Cañas — Verificación de Ingreso</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Encabezado -->
+  <header class="header">
+ 
+    <img id="banner" alt="Encabezado institucional" />
+
+  </header>
+
+  <!-- Navegación -->
+  <nav class="nav">
+    <button id="btnPublic" class="tab active">Verificar</button>
+    <button id="btnAdmin" class="tab">Administrador</button>
+    <span class="session" id="sessionLabel">Sesión pública (DEMO)</span>
+  </nav>
+
+  <!-- Título -->
+  <section class="hero">
+    <h1>
+      Resultado del proceso de selección para séptimo nivel para<br />
+      el curso lectivo 2026
+    </h1>
+  </section>
+
+  <!-- Aviso de “candado” (resultados no publicados) -->
+  <div id="lockMsg" class="notice hidden">
+    Resultados aún no disponibles. Vuelve más tarde.
+  </div>
+
+  <!-- Vista pública -->
+  <main id="publicView" class="card">
+    <label for="codeInput" class="label">Ingrese el código (se admite @)</label>
+    <div class="row">
+      <input id="codeInput" class="input" type="text" placeholder="Ej: 25JOSUE@" autocomplete="off" />
+      <button id="btnVerify" class="btn primary">Verificar</button>
+    </div>
+
+    <section id="resultBox" class="result hidden" aria-live="polite"></section>
+
+    <details class="how">
+      <summary>¿Cómo funciona?</summary>
+      <p>
+        Comparamos el código con la colección <em>autorizados</em>. Si existe y está
+        <em>habilitado</em>, el ingreso es <strong>ADMITIVO</strong>; si no, <strong>NO ADMITIDO</strong>.
+      </p>
+    </details>
+  </main>
+
+  <!-- Vista administrador -->
+  <section id="adminView" class="card hidden">
+    <!-- Login -->
+    <div id="loginBox">
+      <h2>Ingreso de administrador</h2>
+      <div class="row two">
+        <label class="label">Usuario
+          <input id="adminUser" class="input" type="text" placeholder="Usuario" autocomplete="username" />
+        </label>
+        <label class="label">Contraseña
+          <input id="adminPass" class="input" type="password" placeholder="Contraseña" autocomplete="current-password" />
+        </label>
+      </div>
+      <div class="row">
+        <button id="btnLogin" class="btn primary">Entrar</button>
+      </div>
+    </div>
+
+    <!-- Panel -->
+    <div id="panelBox" class="hidden">
+      <div class="row">
+        <h2 class="m-0">Panel de códigos (solo lectura)</h2>
+        <div class="spacer"></div>
+        <button id="btnLogout" class="btn danger">Salir</button>
+      </div>
+
+      <div class="tableWrap">
+        <table class="table" id="codesTable" aria-describedby="helpTable">
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Estado</th>
+              <th>Habilitado</th>
+              <th>Identificación</th>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody id="codesBody"></tbody>
+        </table>
+      </div>
+      <p id="helpTable" class="muted">
+        Tabla de referencia. En producción, esta vista puede permitir edición y guardado.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">© CTP Cañas</footer>
+  <script src="app.js"></script>
+</body>
+</html>
