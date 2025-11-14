@@ -3,7 +3,7 @@
 (function () {
   const TZ = '-06:00'; // Costa Rica
   // Abre 26/11 00:00 y cierra 29/11 00:00 (para incluir todo el día 28)
-  const OPEN_FROM = new Date(`2025-11-14T08:00:00${TZ}`);
+  const OPEN_FROM = new Date(`2025-11-26T08:00:00${TZ}`);
   const OPEN_UNTIL = new Date(`2025-11-29T00:00:00${TZ}`); // exclusivo
 
   const now = new Date();
@@ -16,7 +16,7 @@
 })();
 
 /* ========= Configuración ========= */
-const RELEASE_AT = '2025-11-14T08:00:00-06:00'; // FECHA/HORA DE PUBLICACIÓN
+const RELEASE_AT = '2025-11-26T08:00:00-06:00'; // FECHA/HORA DE PUBLICACIÓN
 const TARGET_URL = 'index1.html';                 // A dónde redirigir al habilitar
 
 /* Pega aquí tu Base64 del banner si lo usas. Si lo dejas vacío, puedes
@@ -68,5 +68,6 @@ function updateCountdown(){
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
 
 
